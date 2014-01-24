@@ -1,10 +1,9 @@
 #!/usr/sbin/python
 
-import wiringpi2
 from time import sleep
 
-# DEBUG
-from struct import *
+import wiringpi2
+
 
 class Max7219:	
 	NOOP 		= 0x00
