@@ -53,11 +53,11 @@ class Canvas():
 
     def getPoint(self, x, y):
         """Returns the logic value of a given coordinate."""
-        return self._c[y*self.__height + x]
+        return self._c[x*self.__height + y]
 
     def setPoint(self, x, y, value):
         """Overwrites a certain pixel of the canvas."""
-        self._c[y*self.__height + x] = value
+        self._c[x*self.__height + y] = value
 
     def getImage(self, x, y, w, h):
         """Returns a Canvas object with a portion of the current canvas"""
@@ -71,7 +71,7 @@ class Canvas():
         return r
 
     def placeImage(self, img, x=0, y=0):
-        """Places a Canvas object over the canvas considering offset."""
+        """Places a Canvas object over the canvas considering positive offset."""
         if img.getSize() == self.getSize() and img.getWidth() == self.__width:
             # Same dimensions
             self._c = img._c
@@ -84,7 +84,7 @@ class Canvas():
 
         else:
             # Different dimensions
-            for dx in range(img.getWidth()):
+            for dx in range(min(img.getWidth(), self.getWidth() - x)):
                 self.writeCol(x+dx, img.getCol(dx), y)
 
     def invert(self):

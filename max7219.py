@@ -43,7 +43,7 @@ class Max7219():
             self.send(self.SCAN_LIMIT, scan_limit)
             self.clear(d)
             self.send(self.TEST, 1)
-            sleep(0.25)
+            sleep(0.01)
             self.send(self.TEST, 0)
             self.send(self.SHUTDOWN, 1)
 
@@ -55,7 +55,7 @@ class Max7219():
                 self.shutdown(d+1)
         else:
             tmpCurrentDisplay = self.getDisplay()
-            self.setDisplay(display - 1)
+            self.setDisplay(display)
 
             self.send(self.SHUTDOWN, 0)
 
@@ -98,5 +98,5 @@ class Max7219():
     def getDisplayCount(self):
         return self.__display_count
 
-    def setDisplayCount(self, how_many):
-        self.__display_count = how_many
+    def setDisplayCount(self, n):
+        self.__display_count = n
