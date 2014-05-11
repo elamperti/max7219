@@ -24,4 +24,4 @@ while(True):
         m.paintCanvas()
         x = a.requestAnimationFrame()
         m._displayCanvas.placeImage(x)
-        sleep(15)
+        sleep(0.1)
