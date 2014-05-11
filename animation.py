@@ -31,3 +31,6 @@ class Animation(canvas.Canvas):
     def insertEffect(self, e, pos):
         """Adds the effect e to the animation's effect queue in the position pos"""
         self.__effects.insert(pos, e)
+
+    def removeEffect(self):
+        self.__effects.pop
