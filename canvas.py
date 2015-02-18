@@ -7,9 +7,12 @@ from bitarray import bitarray
 class Canvas():
 
     def __init__(self, w, h):
-        self._c = (w * h) * bitarray('0')
         self.__width = w
         self.__height = h
+        self.clear()
+
+    def clear(self):
+        self._c = (self.__width * self.__height) * bitarray('0')
 
     def lshift(self, count):
         """Shifts the canvas to the left as many places as count."""

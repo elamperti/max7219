@@ -51,12 +51,10 @@ class Max7219():
     def shutdown(self, display=0):
         if display == 0:
             for d in range(self.__display_count):
-                print "SHUTDOWN " + str(d)
                 self.shutdown(d+1)
         else:
             tmpCurrentDisplay = self.getDisplay()
             self.setDisplay(display)
-
             self.send(self.SHUTDOWN, 0)
 
             self.setDisplay(tmpCurrentDisplay)
